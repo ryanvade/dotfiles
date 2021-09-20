@@ -1,0 +1,3 @@
+function bootstrap_linux () {
+
+}
