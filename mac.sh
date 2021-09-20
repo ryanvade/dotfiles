@@ -141,6 +141,17 @@ function install_visual_studio_code () {
     done
 }
 
+function install_nvim () {
+    echo "Install Neovim (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Neovim"; brew install nvim; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_htop () {
     brew install htop
 }
@@ -180,7 +191,7 @@ function install_docker_desktop () {
     while true; do
         read -r -s -t 5 yn
         case $yn in
-            [Yy]* ) echo "Installing Docker Desktop"; brew install --cask docker; break;;
+            [Yy]* ) echo "Installing Docker Desktop"; brew install --cask docker; echo "export PATH=\"\$PATH:$HOME/.dotnet/tools\"" >> $HOME/.zshrc; break;;
             [Nn]* ) break;;
         esac
     done
@@ -241,6 +252,34 @@ function install_ms_office () {
     done
 }
 
+function create_config () {
+    if [ ! -d "$HOME/.config" ]; then
+        mkdir $HOME/.config
+    fi
+}
+
+function restore_alacritty () {
+    echo "Restore Alacritty Configuration (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Restoring Alacritty Configuration"; stow alacritty; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
+function restore_tmux () {
+    echo "Restore Tmux Configuration (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Restoring Tmux Configuration"; stow tmux; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function bootstrap_mac () {
     # check for and install homebrew
     echo "Checking for Homebrew"
@@ -270,6 +309,7 @@ function bootstrap_mac () {
     echo "Installing IDEs"
     install_jetbrains_toolbox
     install_visual_studio_code
+    install_nvim
 
     echo "Installing Tools"
     install_htop
@@ -287,4 +327,9 @@ function bootstrap_mac () {
     echo "Installing MS Office Products"
     install_ms_teams
     install_ms_office
+
+    echo "Restoring Configurations"
+    create_config
+    restore_alacritty
+    restore_tmux
 }
