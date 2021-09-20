@@ -208,6 +208,17 @@ function install_alacritty () {
     done
 }
 
+function install_parallels () {
+    echo "Install Parallels (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Parallels"; brew install --cask parallels; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_firefox () {
     echo "Install Firefox (Y/n): "
     while true; do
@@ -319,6 +330,7 @@ function bootstrap_mac () {
     install_github_cli
     install_docker_desktop
     install_alacritty
+    install_parallels
 
     echo "Installing Browsers"
     install_firefox
