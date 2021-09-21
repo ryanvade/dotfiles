@@ -165,11 +165,12 @@ function install_tmux () {
 }
 
 function install_harvest () {
-    echo "Install Harvest Time Tracking (Y/n): "
+    echo "NOTICE: Harvest has moved to the App Store"
+    echo "Install Harvest Time Tracking (Legacy App) (Y/n): "
     while true; do
         read -r -s -t 5 yn
         case $yn in
-            [Yy]* ) echo "Installing Harvest"; brew install harvest; break;;
+            [Yy]* ) echo "Installing Harvest (Legacy App)"; brew install harvest; break;;
             [Nn]* ) break;;
         esac
     done
@@ -263,6 +264,39 @@ function install_ms_office () {
     done
 }
 
+function install_elgato_control_center () {
+    echo "Install Elgato Control Center (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Elgato Control Center"; brew install homebrew/cask-drivers/elgato-control-center; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
+function install_sensible_side_buttons () {
+        echo "Install Sensible Side Buttons (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Sensible Side Buttons"; brew install sensiblesidebuttons; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
+function install_rectangle () {
+        echo "Install Rectangle (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Rectangle"; brew install rectangle; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function create_config () {
     if [ ! -d "$HOME/.config" ]; then
         mkdir $HOME/.config
@@ -339,6 +373,11 @@ function bootstrap_mac () {
     echo "Installing MS Office Products"
     install_ms_teams
     install_ms_office
+
+    echo "Installing Additional Tools"
+    install_elgato_control_center
+    install_sensible_side_buttons
+    install_rectangle
 
     echo "Restoring Configurations"
     create_config
