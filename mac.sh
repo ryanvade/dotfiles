@@ -253,6 +253,17 @@ function install_azure_cli () {
     done
 }
 
+function install_tfenv () {
+    echo "Install Terraform Version Manager <tfenv> (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Terraform Version Manager"; brew install tfenv; tfenv install; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_firefox () {
     echo "Install Firefox (Y/n): "
     while true; do
@@ -412,6 +423,7 @@ function bootstrap_mac () {
     install_alacritty
     install_parallels
     install_azure_cli
+    install_tfenv
 
     echo "Installing Browsers"
     install_firefox
