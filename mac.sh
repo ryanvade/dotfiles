@@ -163,6 +163,17 @@ function install_nvim () {
     done
 }
 
+function install_mongodb_compass () {
+    echo "Install MongoDB Compass (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing MongoDB Compass"; brew install mongodb-compass; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_htop () {
     brew install htop
 }
@@ -378,6 +389,7 @@ function bootstrap_mac () {
     install_jetbrains_toolbox
     install_visual_studio_code
     install_nvim
+    install_mongodb_compass
 
     echo "Installing Tools"
     install_htop
