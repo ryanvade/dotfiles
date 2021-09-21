@@ -119,6 +119,17 @@ function install_angular_cli () {
     done
 }
 
+function install_nswag_cli () {
+    echo "Install Nswag CLI (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Nswag CLI"; npm i -g nswag; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_jetbrains_toolbox () {
     echo "Install Jetbrains Toolbox (Y/n): "
     while true; do
@@ -215,6 +226,17 @@ function install_parallels () {
         read -r -s -t 5 yn
         case $yn in
             [Yy]* ) echo "Installing Parallels"; brew install --cask parallels; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
+function install_azure_cli () {
+    echo "Install Azure CLI (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Azure CLI"; brew install azure-cli; break;;
             [Nn]* ) break;;
         esac
     done
@@ -350,6 +372,7 @@ function bootstrap_mac () {
     install_rust
     install_vue_cli
     install_angular_cli
+    install_nswag_cli
 
     echo "Installing IDEs"
     install_jetbrains_toolbox
@@ -365,6 +388,7 @@ function bootstrap_mac () {
     install_docker_desktop
     install_alacritty
     install_parallels
+    install_azure_cli
 
     echo "Installing Browsers"
     install_firefox
