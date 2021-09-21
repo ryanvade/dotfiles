@@ -1,0 +1,19 @@
+{
+    "default": [
+        "akamud.vscode-theme-onedark",
+        "eamodio.gitlens",
+        "Gruntfuggly.todo-tree"
+    ],
+    "angular": [
+        "Angular.ng-template",
+        "johnpapa.Angular2"
+    ],
+    "vue": [],
+    "vue3": [],
+    "python": [],
+    "rust": [],
+    "remote-dev": [],
+    "scripting": [
+        "foxundermoon.shell-format"
+    ]
+}

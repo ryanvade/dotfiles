@@ -28,10 +28,14 @@ function install_firacode_font () {
     brew install --cask font-fira-code
 }
 
+function install_jq () {
+    brew install jq
+}
+
 function install_1password () {
     echo "Install 1Password (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing 1Password"; brew install 1password 1password-cli; break;;
             [Nn]* ) break;;
@@ -42,7 +46,7 @@ function install_1password () {
 function install_dotnet () {
     echo "Install Dotnet (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Dotnet"; brew install dotnet dotnet-sdk; break;;
             [Nn]* ) break;;
@@ -61,7 +65,7 @@ function _install_node () {
 function install_node () {
     echo "Install Node.js (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Nodejs via Nvm"; _install_node; break;;
             [Nn]* ) break;;
@@ -72,7 +76,7 @@ function install_node () {
 function install_golang () {
     echo "Install Golang (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Golang"; brew install golang; break;;
             [Nn]* ) break;;
@@ -89,7 +93,7 @@ function _install_rust () {
 function install_rust () {
     echo "Install Rustlang (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Rustlang"; _install_rust; break;;
             [Nn]* ) break;;
@@ -100,7 +104,7 @@ function install_rust () {
 function install_vue_cli () {
     echo "Install Vue CLI (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Vue CLI"; npm i -g @vue/cli; break;;
             [Nn]* ) break;;
@@ -111,7 +115,7 @@ function install_vue_cli () {
 function install_angular_cli () {
     echo "Install Angular CLI (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Angular CLI"; npm i -g @angular/cli; break;;
             [Nn]* ) break;;
@@ -122,7 +126,7 @@ function install_angular_cli () {
 function install_nswag_cli () {
     echo "Install Nswag CLI (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Nswag CLI"; npm i -g nswag; break;;
             [Nn]* ) break;;
@@ -133,7 +137,7 @@ function install_nswag_cli () {
 function install_jetbrains_toolbox () {
     echo "Install Jetbrains Toolbox (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Jetbrains Toolbox"; brew install jetbrains-toolbox; break;;
             [Nn]* ) break;;
@@ -144,7 +148,7 @@ function install_jetbrains_toolbox () {
 function install_visual_studio_code () {
     echo "Install Visual Studio Code (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Visual Studio Code"; brew install visual-studio-code; break;;
             [Nn]* ) break;;
@@ -155,7 +159,7 @@ function install_visual_studio_code () {
 function install_nvim () {
     echo "Install Neovim (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Neovim"; brew install nvim; break;;
             [Nn]* ) break;;
@@ -166,7 +170,7 @@ function install_nvim () {
 function install_mongodb_compass () {
     echo "Install MongoDB Compass (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing MongoDB Compass"; brew install mongodb-compass; break;;
             [Nn]* ) break;;
@@ -190,7 +194,7 @@ function install_harvest () {
     echo "NOTICE: Harvest has moved to the App Store"
     echo "Install Harvest Time Tracking (Legacy App) (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Harvest (Legacy App)"; brew install harvest; break;;
             [Nn]* ) break;;
@@ -201,7 +205,7 @@ function install_harvest () {
 function install_github_cli () {
     echo "Install GitHub CLI (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing GitHub CLI"; brew install gh; break;;
             [Nn]* ) break;;
@@ -212,7 +216,7 @@ function install_github_cli () {
 function install_docker_desktop () {
     echo "Install Docker Desktop (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Docker Desktop"; brew install --cask docker; echo "export PATH=\"\$PATH:$HOME/.dotnet/tools\"" >> $HOME/.zshrc; break;;
             [Nn]* ) break;;
@@ -223,7 +227,7 @@ function install_docker_desktop () {
 function install_alacritty () {
     echo "Install Alacritty (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Alacritty"; brew install alacritty; break;;
             [Nn]* ) break;;
@@ -234,7 +238,7 @@ function install_alacritty () {
 function install_parallels () {
     echo "Install Parallels (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Parallels"; brew install --cask parallels; break;;
             [Nn]* ) break;;
@@ -245,7 +249,7 @@ function install_parallels () {
 function install_azure_cli () {
     echo "Install Azure CLI (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Azure CLI"; brew install azure-cli; break;;
             [Nn]* ) break;;
@@ -256,7 +260,7 @@ function install_azure_cli () {
 function install_tfenv () {
     echo "Install Terraform Version Manager <tfenv> (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Terraform Version Manager"; brew install tfenv; tfenv install; break;;
             [Nn]* ) break;;
@@ -267,7 +271,7 @@ function install_tfenv () {
 function install_firefox () {
     echo "Install Firefox (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Firefox"; brew install firefox; break;;
             [Nn]* ) break;;
@@ -278,7 +282,7 @@ function install_firefox () {
 function install_chrome () {
     echo "Install Chrome (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Chrome"; brew install google-chrome; break;;
             [Nn]* ) break;;
@@ -289,7 +293,7 @@ function install_chrome () {
 function install_ms_teams () {
     echo "Install MS Teams (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing MS Teams"; brew install microsoft-teams; break;;
             [Nn]* ) break;;
@@ -300,7 +304,7 @@ function install_ms_teams () {
 function install_ms_office () {
     echo "Install MS Office (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing MS Office"; brew install microsoft-office; break;;
             [Nn]* ) break;;
@@ -311,7 +315,7 @@ function install_ms_office () {
 function install_elgato_control_center () {
     echo "Install Elgato Control Center (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Elgato Control Center"; brew install homebrew/cask-drivers/elgato-control-center; break;;
             [Nn]* ) break;;
@@ -322,7 +326,7 @@ function install_elgato_control_center () {
 function install_sensible_side_buttons () {
     echo "Install Sensible Side Buttons (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Sensible Side Buttons"; brew install sensiblesidebuttons; break;;
             [Nn]* ) break;;
@@ -333,7 +337,7 @@ function install_sensible_side_buttons () {
 function install_rectangle () {
     echo "Install Rectangle (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Rectangle"; brew install rectangle; break;;
             [Nn]* ) break;;
@@ -344,7 +348,7 @@ function install_rectangle () {
 function install_miro () {
     echo "Install Miro (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Installing Miro"; brew install --cask miro; break;;
             [Nn]* ) break;;
@@ -361,7 +365,7 @@ function create_config () {
 function restore_alacritty () {
     echo "Restore Alacritty Configuration (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Restoring Alacritty Configuration"; stow alacritty; break;;
             [Nn]* ) break;;
@@ -372,12 +376,40 @@ function restore_alacritty () {
 function restore_tmux () {
     echo "Restore Tmux Configuration (Y/n): "
     while true; do
-        read -r -s -t 5 yn
+        read -r -s -t 100 yn
         case $yn in
             [Yy]* ) echo "Restoring Tmux Configuration"; stow tmux; break;;
             [Nn]* ) break;;
         esac
     done
+}
+
+function _install_extensions_from_config () {
+    echo "Restoring $1 workload extensions"
+    extensions=($(jq -r ".$1 | .[]" ./install-configs/vscode-extensions.json))
+    for extension ("$extensions[@]"); do
+        code --install-extension $extension;
+    done
+}
+
+function restore_vscode_extensions () {
+    if  vscode_loc="$(type -p code)" || [[ -z $vscode_loc ]]; then
+        workloads=($(jq "keys_unsorted | .[]" ./install-configs/vscode-extensions.json))
+        for workload ("$workloads[@]"); do
+            if [[ "$workload" == "\"default\"" ]]; then
+                _install_extensions_from_config $workload;
+            else
+                echo "Restore $workload workload extensions (Y/n): "
+                while true; do
+                    read -r -s -t 100 yn
+                    case $yn in
+                        [Yy]* ) _install_extensions_from_config $workload; break;;
+                        [Nn]* ) break;;
+                    esac
+                done
+            fi
+        done
+    fi
 }
 
 function bootstrap_mac () {
@@ -394,6 +426,7 @@ function bootstrap_mac () {
     install_oh_my_zsh
     install_spaceship_theme
     install_firacode_font
+    install_jq
 
     echo "Installing Password Managers"
     install_1password
@@ -443,4 +476,5 @@ function bootstrap_mac () {
     create_config
     restore_alacritty
     restore_tmux
+    restore_vscode_extensions
 }
