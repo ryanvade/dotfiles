@@ -309,7 +309,7 @@ function install_elgato_control_center () {
 }
 
 function install_sensible_side_buttons () {
-        echo "Install Sensible Side Buttons (Y/n): "
+    echo "Install Sensible Side Buttons (Y/n): "
     while true; do
         read -r -s -t 5 yn
         case $yn in
@@ -320,11 +320,22 @@ function install_sensible_side_buttons () {
 }
 
 function install_rectangle () {
-        echo "Install Rectangle (Y/n): "
+    echo "Install Rectangle (Y/n): "
     while true; do
         read -r -s -t 5 yn
         case $yn in
             [Yy]* ) echo "Installing Rectangle"; brew install rectangle; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
+function install_miro () {
+    echo "Install Miro (Y/n): "
+    while true; do
+        read -r -s -t 5 yn
+        case $yn in
+            [Yy]* ) echo "Installing Miro"; brew install --cask miro; break;;
             [Nn]* ) break;;
         esac
     done
@@ -414,6 +425,7 @@ function bootstrap_mac () {
     install_elgato_control_center
     install_sensible_side_buttons
     install_rectangle
+    install_miro
 
     echo "Restoring Configurations"
     create_config
