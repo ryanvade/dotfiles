@@ -312,6 +312,17 @@ function install_ms_office () {
     done
 }
 
+function install_slack () {
+    echo "Install Slack (Y/n): "
+    while true; do
+        read -r -s -t 100 yn
+        case $yn in
+            [Yy]* ) echo "Installing Slack"; brew install --cask slack; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_elgato_control_center () {
     echo "Install Elgato Control Center (Y/n): "
     while true; do
@@ -467,6 +478,7 @@ function bootstrap_mac () {
     install_ms_office
 
     echo "Installing Additional Tools"
+    install_slack
     install_elgato_control_center
     install_sensible_side_buttons
     install_rectangle
