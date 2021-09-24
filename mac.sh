@@ -367,6 +367,17 @@ function install_miro () {
     done
 }
 
+function install_logitech_g_hub () {
+    echo "Install Logitech G Hub (Y/n): "
+    while true; do
+        read -r -s -t 100 yn
+        case $yn in
+            [Yy]* ) echo "Installing Logitech G Hub"; brew install --cask logitech-g-hub; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function create_config () {
     if [ ! -d "$HOME/.config" ]; then
         mkdir $HOME/.config
@@ -483,6 +494,7 @@ function bootstrap_mac () {
     install_sensible_side_buttons
     install_rectangle
     install_miro
+    install_logitech_g_hub
 
     echo "Restoring Configurations"
     create_config
