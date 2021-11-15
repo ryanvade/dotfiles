@@ -55,15 +55,16 @@ function install_dotnet () {
 }
 
 function _install_node () {
-    curl -fsSL -o /tmp/install-nvm.sh https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
+    latest=$(curl -sL https://api.github.com/repos/nvm-sh/nvm/tags | jq -r ".[].name" | head -n 1)
+    curl -fsSL -o /tmp/install-nvm.sh https://raw.githubusercontent.com/nvm-sh/nvm/$latest/install.sh 
     chmod +x /tmp/install-nvm.sh
     /tmp/install-nvm.sh
     source $HOME/.zshrc
-    nvm install --lts
+    nvm install --lts --default
 }
 
 function install_node () {
-    echo "Install Node.js (Y/n): "
+    echo "Install Node.js via NVM (Y/n): "
     while true; do
         read -r -s -t 100 yn
         case $yn in
@@ -378,6 +379,17 @@ function install_logitech_g_hub () {
     done
 }
 
+function install_spotify () {
+    echo "Spotify (Y/n): "
+    while true; do
+        read -r -s -t 100 yn
+        case $yn in
+            [Yy]* ) echo "Installing Spotify"; brew install spotify; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function create_config () {
     if [ ! -d "$HOME/.config" ]; then
         mkdir $HOME/.config
@@ -421,7 +433,7 @@ function restore_vscode_extensions () {
             if [[ "$workload" == "\"default\"" ]]; then
                 _install_extensions_from_config $workload;
             else
-                echo "Restore $workload workload extensions (Y/n): "
+                echo "Restore $workload vscode workload extensions (Y/n): "
                 while true; do
                     read -r -s -t 100 yn
                     case $yn in
@@ -495,6 +507,7 @@ function bootstrap_mac () {
     install_rectangle
     install_miro
     install_logitech_g_hub
+    install_spotify 
 
     echo "Restoring Configurations"
     create_config
