@@ -135,6 +135,17 @@ function install_nswag_cli () {
     done
 }
 
+function install_mongo_cli_tools () {
+    echo "Install MongoDB CLI Tools (Y/n): "
+    while true; do
+        read -r -s -t 100 yn
+        case $yn in
+            [Yy]* ) echo "Installing MongoDB CLI Tools"; brew tap mongodb/brew; brew install mongodb-database-tools; break;;
+            [Nn]* ) break;;
+        esac
+    done
+}
+
 function install_jetbrains_toolbox () {
     echo "Install Jetbrains Toolbox (Y/n): "
     while true; do
@@ -473,6 +484,7 @@ function bootstrap_mac () {
     install_vue_cli
     install_angular_cli
     install_nswag_cli
+    install_mongo_cli_tools
 
     echo "Installing IDEs"
     install_jetbrains_toolbox
