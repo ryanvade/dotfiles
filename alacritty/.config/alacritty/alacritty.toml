@@ -1,0 +1,18 @@
+[font.normal]
+family = "Fira Code"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ToggleSimpleFullscreen"
+key = "M"
+mods = "Command|Shift"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+opacity = 0.8
+startup_mode = "Maximized"
+
+[window.padding]
+x = 10
+y = 10
